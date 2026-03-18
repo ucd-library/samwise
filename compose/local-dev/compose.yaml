@@ -6,22 +6,13 @@ services:
     ports:
       - "8080:8080"
     environment:
-      - OLLAMA_BASE_URL=${OLLAMA_BASE_URL:-http://model-proxy:11434}
+      OLLAMA_BASE_URL: ${OLLAMA_BASE_URL:-http://model-proxy:11434}
+      ENABLE_OLLAMA_API: False
+      ENABLE_OPENAI_API: True
     env_file:
       - .env
     volumes:
       - open-webui:/app/backend/data
-
-  model-proxy:
-    build: ../../model-proxy
-    volumes:
-      - ../../model-proxy/lib:/app/lib
-      - ../../model-proxy/index.js:/app/index.js
-    environment:
-      - MODEL_ROUTE_DEFAULT=${MODEL_ROUTE_DEFAULT:-http://localhost:11435}
-    env_file:
-      - .env
-    command: ["bash", "-c", "tail -f /dev/null"]
 
 volumes:
   open-webui:

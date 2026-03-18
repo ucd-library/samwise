@@ -91,6 +91,12 @@ const config = {
 
   routing: {
     hosts : process.env.OLLAMA_HOSTS.split(',').map(h => h.trim()),
+    authKeys : process.env.API_KEYS ? Object.fromEntries(
+      process.env.API_KEYS.split(',').map(pair => {
+        const [host, key] = pair.split(':').map(s => s.trim());
+        return [host, key];
+      })
+    ) : {},
     routeMap,   // Map<UPPERCASE_MODEL_NAME, ollamaBaseUrl>
     defaultUrl: defaultUrl || process.env.MODEL_ROUTE_DEFAULT || null,
     header: process.env.MODEL_HEADER || 'x-requested-model',

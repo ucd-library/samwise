@@ -2,10 +2,11 @@ import express from 'express';
 import config from './lib/config.js';
 import { authMiddleware, modelAccessMiddleware } from './lib/auth.js';
 import { modelRouterMiddleware } from './lib/router.js';
-import { getModels } from './lib/models.js';
+import { getModels } from './lib/tags.js';
 import { buildStreamingProxy } from './lib/streaming-proxy.js';
 import logger from './lib/logger.js';
 import {logReqMiddleware} from '@ucd-lib/logger';
+import ps from './lib/ps.js';
 
 // ─── App setup ────────────────────────────────────────────────────────────────
 
@@ -45,6 +46,12 @@ const proxyMiddleware = buildStreamingProxy();
 app.use('/api/tags', async (req, res) => {
   res.json({
     models: Object.values(await getModels())
+  });
+});
+
+app.use('/api/ps', async (req, res) => {
+  res.json({
+    models: Object.values(await ps())
   });
 });
 

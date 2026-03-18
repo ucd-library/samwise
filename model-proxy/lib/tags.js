@@ -23,6 +23,7 @@ async function loadModels() {
   let tmpModels = {};
 
   for( let host of config.routing.hosts) {
+    let isCloud = host.includes('ollama.com');
     try {
       const res = await fetch(`${host}/api/tags`);
       if (!res.ok) {
@@ -33,6 +34,10 @@ async function loadModels() {
 
       for (const model of data.models) {
         if( !tmpModels[model.name] ) {
+          if( isCloud ) {
+            model.name += ` (${new URL(host).host})`;
+          }
+
           tmpRoutes[model.name] = {hosts: [host]};
           tmpModels[model.name] = model;
         } else {

@@ -18,10 +18,18 @@ function copyRequestHeaders(req) {
   for (const [key, value] of Object.entries(req.headers)) {
     if (value === undefined) continue;
     if (Array.isArray(value)) {
-      for (const item of value) headers.append(key, item);
+      for (const item of value) headers.append(key.toLowerCase(), item);
       continue;
     }
-    headers.set(key, String(value));
+    headers.set(key.toLowerCase(), String(value));
+  }
+
+  if( !headers.has('authorization') && req.ollamaTarget) {
+    let host = new URL(req.ollamaTarget).host;
+    const authKey = config.routing.authKeys[host];
+    if( authKey ) {
+      headers.set('authorization', `Bearer ${authKey}`);
+    }
   }
 
   return headers;
