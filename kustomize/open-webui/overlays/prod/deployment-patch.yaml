@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: open-webui
+spec:
+  template:
+    spec:
+      containers:
+        - name: open-webui
+          # Pin to a specific release tag — update per release
+          image: ghcr.io/open-webui/open-webui:main
+          envFrom:
+            - configMapRef:
+                name: open-webui-config
+          env:
+            - name: OAUTH_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: oauth-client-secret
+                  key: secret
+            - name: WEBUI_URL
+              value: https://samwise.library.ucdavis.edu
+      nodeSelector:
+        intended-for: "samwise-frontend"

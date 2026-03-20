@@ -1,0 +1,42 @@
+{
+  "project" : "dams",
+
+  "environments" : {
+    "prod" : {
+      "project" : "digital-ucdavis-edu",
+      "platform" : "microk8s",
+      "namespace" : "samwise",
+      "kubeconfig" : {
+        "secret" : "kubeconfig-dev-libk8s",
+        "context" : "microk8s"
+      }
+    }
+  },
+
+  "secrets" : {
+    "prod" : [{
+      "k8sName" : "kubeconfig",
+      "kubeconfig" : true
+    },{
+      "k8sName" : "oauth-client-secret",
+      "mappings" : [{
+        "gcsmName" : "samwise-keycloak-client-secret",
+        "k8sProperty" : "secret"
+      }]
+    },    {
+      "k8sName" : "open-webui-tls",
+      "tls" : true,
+      "certGcsmName" : "lib-ssl-cert",
+      "keyGcsmName" : "lib-ssl-key"
+    }]
+  },
+
+  "services" : [
+    {
+      "path" : "kustomize/postgres"
+    },
+    {
+      "path" : "kustomize/open-webui"
+    }
+  ]
+}

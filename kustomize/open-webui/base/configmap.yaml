@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: open-webui-config
+data:
+  OLLAMA_BASE_URL: "http://cyberdyne01.library.ucdavis.edu:11434"
+  ENABLE_OLLAMA_API: "False"
+  ENABLE_OPENAI_API: "True"
+  DATABASE_URL: "postgresql://postgres:postgres@postgres:5432/samwise"
+  ENABLE_OAUTH_SIGNUP: "true"
+  ENABLE_OAUTH_PERSISTENT_CONFIG: "false"
+  OAUTH_CLIENT_ID: "ollama"
+  WEBUI_URL: "http://localhost:8080"
+  OPENID_PROVIDER_URL: "https://auth.library.ucdavis.edu/realms/internal/.well-known/openid-configuration"
+  OAUTH_PROVIDER_NAME: "UC Davis CAS"
+  OAUTH_SCOPES: "openid profile email groups"
+  ENABLE_PASSWORD_AUTH: "false"
+  ENABLE_LOGIN_FORM: "false"
+  WEBUI_NAME: "Samwise"
