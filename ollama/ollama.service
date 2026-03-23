@@ -1,0 +1,13 @@
+[Unit]
+Description=Ollam Production Environment
+After=network.target docker.service
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/samwise/ollama
+ExecStart=/usr/local/bin/docker compose -f /opt/samwise/ollama/compose.yaml -p ollama up
+ExecStop=/usr/local/bin/docker compose -f /opt/samwise/ollama/compose.yaml -p ollama down
+#Restart=always
+
+[Install]
+WantedBy=multi-user.target

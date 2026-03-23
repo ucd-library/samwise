@@ -11,4 +11,7 @@ spec:
     - name: http
       port: 8080
       targetPort: 8080
+    - name: ollama
+      port: 11434
+      targetPort: 11434
   type: ClusterIP

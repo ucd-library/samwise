@@ -7,7 +7,7 @@ services:
       - "8080:8080"
     environment:
       OLLAMA_BASE_URL: ${OLLAMA_BASE_URL:-http://cyberdyne01.library.ucdavis.edu:11434}
-      ENABLE_OLLAMA_API: False
+      ENABLE_OLLAMA_API: True
       ENABLE_OPENAI_API: True
       DATABASE_URL: postgresql://postgres:postgres@postgres:5432/samwise
       ENABLE_OAUTH_SIGNUP: true
