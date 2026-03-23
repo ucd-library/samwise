@@ -2,8 +2,10 @@ services:
   ollama:
     image: ollama/ollama:latest
     ports:
-      11434:11434
+      - 11434:11434
     gpus: all
+    env_file:
+      - .env
     environment:
       OLLAMA_HOST: 0.0.0.0:11434
       NVIDIA_VISIBLE_DEVICES: all
