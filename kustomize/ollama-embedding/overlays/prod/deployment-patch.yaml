@@ -1,0 +1,15 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ollama-embedding
+spec:
+  template:
+    spec:
+      nodeSelector:
+        intended-for: "samwise-ollama-embedding"
+      containers:
+        - name: ollama
+          image: ollama/ollama:latest
+          env:
+            - name: OLLAMA_NUM_PARALLEL
+              value: "8"

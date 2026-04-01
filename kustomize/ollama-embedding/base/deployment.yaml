@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ollama-embedding
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ollama-embedding
+  template:
+    metadata:
+      labels:
+        app: ollama-embedding
+    spec:
+      containers:
+        - name: ollama
+          image: ollama/ollama:latest
+          ports:
+            - containerPort: 11434
+          env:
+            - name: OLLAMA_HOST
+              value: "0.0.0.0:11434"
+            - name: NVIDIA_VISIBLE_DEVICES
+              value: "all"
+            - name: OLLAMA_NUM_THREAD
+              value: "10"
+            - name: OLLAMA_NUM_GPU
+              value: "999"
+          # resources:
+          #   limits:
+          #     nvidia.com/gpu: 1
+          volumeMounts:
+            - name: ollama-data
+              mountPath: /root/.ollama
+      volumes:
+        - name: ollama-data
+          hostPath:
+            path: /opt/ollama-data
+            type: DirectoryOrCreate

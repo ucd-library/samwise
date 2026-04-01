@@ -37,6 +37,9 @@
     },
     {
       "path" : "kustomize/open-webui"
+    },
+    {
+      "path" : "kustomize/ollama-embedding"
     }
   ]
 }
