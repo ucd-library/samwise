@@ -1,5 +1,5 @@
 {
-  "project" : "dams",
+  "project" : "samwise",
 
   "environments" : {
     "prod" : {

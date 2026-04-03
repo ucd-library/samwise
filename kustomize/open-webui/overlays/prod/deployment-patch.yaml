@@ -13,6 +13,8 @@ spec:
             - configMapRef:
                 name: open-webui-config
           env:
+            - name: UVICORN_WORKERS
+              value: "4"
             - name: OAUTH_CLIENT_SECRET
               valueFrom:
                 secretKeyRef:
