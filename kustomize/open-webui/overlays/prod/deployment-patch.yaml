@@ -9,12 +9,15 @@ spec:
         - name: open-webui
           # Pin to a specific release tag — update per release
           image: ghcr.io/open-webui/open-webui:main
+          imagePullPolicy: Always
           envFrom:
             - configMapRef:
                 name: open-webui-config
           env:
             - name: UVICORN_WORKERS
-              value: "4"
+              value: "12"
+            - name: WEBUI_WORKERS
+              value: "12"
             - name: OAUTH_CLIENT_SECRET
               valueFrom:
                 secretKeyRef:

@@ -8,9 +8,12 @@ metadata:
     nginx.ingress.kubernetes.io/proxy-body-size: "50m"
     nginx.ingress.kubernetes.io/proxy-read-timeout: "900"
     nginx.ingress.kubernetes.io/proxy-send-timeout: "300"
-    nginx.ingress.kubernetes.io/upstream-keepalive-connections: "100"
+    nginx.ingress.kubernetes.io/upstream-keepalive-connections: "512"
+    nginx.ingress.kubernetes.io/upstream-keepalive-requests: "1000"
+    nginx.ingress.kubernetes.io/upstream-keepalive-timeout: "600"
     nginx.ingress.kubernetes.io/worker-connections: "4096"
-    nginx.ingress.kubernetes.io/keep-alive-requests: "100"
+    nginx.ingress.kubernetes.io/keep-alive-requests: "1000"
+    nginx.ingress.kubernetes.io/upstream-keepalive-requests: "1000"
     # Uncomment to issue TLS certificates via cert-manager:
     # cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
