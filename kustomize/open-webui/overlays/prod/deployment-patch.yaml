@@ -8,7 +8,7 @@ spec:
       containers:
         - name: open-webui
           # Pin to a specific release tag — update per release
-          image: ghcr.io/open-webui/open-webui:main
+          image: ghcr.io/open-webui/open-webui:v0.9.5
           imagePullPolicy: Always
           envFrom:
             - configMapRef:

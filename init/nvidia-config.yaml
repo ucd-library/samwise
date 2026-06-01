@@ -1,0 +1,14 @@
+driver:
+  enabled: false
+devicePlugin:
+  version: v0.17.4
+  config:
+    default: all
+    data:
+      all: |
+        version: v1
+        flags:
+          failOnInitError: false
+          migStrategy: none
+gfd:
+  enabled: false

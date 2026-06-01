@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vllm
+spec:
+  template:
+    spec:
+      # stop k8s from injecting env vars that cause vllm to fail
+      enableServiceLinks: false
+      nodeSelector:
+        kubernetes.io/hostname: cyberdyne02.library.ucdavis.edu
+      tolerations:
+        - key: dedicated
+          operator: Equal
+          value: gpu-inference
+          effect: NoSchedule
+      containers:
+        - name: vllm
+          args:
+            - --model
+            - cyankiwi/Qwen3.6-27B-AWQ-INT4
+            - --host
+            - "0.0.0.0"
+            - --port
+            - "8000"
+            - --gpu-memory-utilization
+            - "0.80"
+            - --max-model-len
+            - "32768"
+            - --tensor-parallel-size
+            - "1"
