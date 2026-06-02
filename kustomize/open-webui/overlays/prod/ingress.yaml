@@ -14,6 +14,11 @@ metadata:
     nginx.ingress.kubernetes.io/worker-connections: "4096"
     nginx.ingress.kubernetes.io/keep-alive-requests: "1000"
     nginx.ingress.kubernetes.io/upstream-keepalive-requests: "1000"
+    # Enable sticky sessions to ensure users stay connected to the same backend pod
+    nginx.ingress.kubernetes.io/affinity: "cookie"
+    nginx.ingress.kubernetes.io/session-cookie-name: "OWUI_ROUTE"
+    nginx.ingress.kubernetes.io/session-cookie-expires: "172800"
+    nginx.ingress.kubernetes.io/session-cookie-max-age: "172800"
     # Uncomment to issue TLS certificates via cert-manager:
     # cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:

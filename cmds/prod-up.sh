@@ -5,4 +5,4 @@ cd "$DIR/.."
 
 cork-kube init prod
 cork-kube up prod
-cork-kube apply kustomize/vllm -o cyberdyne02-qwen36 --dry-run
+cork-kube apply kustomize/vllm -o cyberdyne02-qwen35

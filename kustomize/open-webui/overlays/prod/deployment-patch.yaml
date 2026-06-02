@@ -3,21 +3,22 @@ kind: Deployment
 metadata:
   name: open-webui
 spec:
+  replicas: 4
   template:
     spec:
       containers:
         - name: open-webui
           # Pin to a specific release tag — update per release
-          image: ghcr.io/open-webui/open-webui:v0.9.5
+          image: ghcr.io/open-webui/open-webui:v0.9.6
           imagePullPolicy: Always
           envFrom:
             - configMapRef:
                 name: open-webui-config
           env:
             - name: UVICORN_WORKERS
-              value: "12"
+              value: "1"
             - name: WEBUI_WORKERS
-              value: "12"
+              value: "1"
             - name: OAUTH_CLIENT_SECRET
               valueFrom:
                 secretKeyRef:
