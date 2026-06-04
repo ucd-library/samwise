@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: litellm-config
+data:
+  config.yaml: |
+    model_list:
+
+      # vllm: OpenAI-compatible endpoint on cyberdyne02 (one overlay active at a time)
+      - model_name: qwen3.5
+        litellm_params:
+          model: vllm/Qwen/Qwen3.5-35B-A3B
+          api_base: http://cyberdyne02-qwen35-vllm:8000
+
+      # cyberdyne01: external ollama host
+      # UPDATE: replace model name with whatever is pulled on cyberdyne01
+      - model_name: llama3
+        litellm_params:
+          model: ollama/qwen2.5vl:32b
+          api_base: http://cyberdyne01.library.ucdavis.edu:11434
+
+    general_settings:
+      master_key: os.environ/LITELLM_MASTER_KEY
+      database_url: os.environ/DATABASE_URL
+      store_model_in_db: true

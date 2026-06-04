@@ -26,5 +26,10 @@ spec:
                   key: secret
             - name: WEBUI_URL
               value: https://samwise.library.ucdavis.edu
+            - name: OPENAI_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: litellm-secret
+                  key: master-key
       nodeSelector:
         intended-for: "samwise-frontend"

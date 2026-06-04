@@ -23,11 +23,22 @@
         "gcsmName" : "samwise-keycloak-client-secret",
         "k8sProperty" : "secret"
       }]
-    },    {
+    },{
       "k8sName" : "open-webui-tls",
       "tls" : true,
       "certGcsmName" : "lib-ssl-cert",
       "keyGcsmName" : "lib-ssl-key"
+    },{
+      "k8sName" : "litellm-tls",
+      "tls" : true,
+      "certGcsmName" : "lib-ssl-cert",
+      "keyGcsmName" : "lib-ssl-key"
+    },{
+      "k8sName" : "litellm-secret",
+      "mappings" : [{
+        "gcsmName" : "samwise-litellm-master-key",
+        "k8sProperty" : "master-key"
+      }]
     }]
   },
 
@@ -40,6 +51,12 @@
     },
     {
       "path" : "kustomize/ollama-embedding"
+    },
+    {
+      "path" : "kustomize/vllm/overlays/cyberdyne02-qwen35"
+    },
+    {
+      "path" : "kustomize/litellm"
     }
   ]
 }
