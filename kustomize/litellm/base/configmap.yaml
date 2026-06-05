@@ -9,12 +9,13 @@ data:
       # vllm: OpenAI-compatible endpoint on cyberdyne02 (one overlay active at a time)
       - model_name: qwen3.5
         litellm_params:
-          model: vllm/Qwen/Qwen3.5-35B-A3B
-          api_base: http://cyberdyne02-qwen35-vllm:8000
+          model: openai/Qwen/Qwen3.5-35B-A3B
+          api_base: http://cyberdyne02-qwen35-vllm:8000/v1
+          api_key: "test"
 
       # cyberdyne01: external ollama host
       # UPDATE: replace model name with whatever is pulled on cyberdyne01
-      - model_name: llama3
+      - model_name: qwen2.5vl:32b
         litellm_params:
           model: ollama/qwen2.5vl:32b
           api_base: http://cyberdyne01.library.ucdavis.edu:11434

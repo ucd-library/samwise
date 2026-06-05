@@ -12,7 +12,7 @@ metadata:
     nginx.ingress.kubernetes.io/upstream-keepalive-requests: "1000"
     nginx.ingress.kubernetes.io/upstream-keepalive-timeout: "600"
 spec:
-  ingressClassName: nginx
+  ingressClassName: vpn-ingress
   rules:
     - host: samwise-api.library.ucdavis.edu
       http:

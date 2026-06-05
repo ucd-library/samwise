@@ -56,6 +56,9 @@
       "path" : "kustomize/vllm/overlays/cyberdyne02-qwen35"
     },
     {
+      "path" : "kustomize/vllm/overlays/cyberdyne02-gemma4"
+    },
+    {
       "path" : "kustomize/litellm"
     }
   ]
