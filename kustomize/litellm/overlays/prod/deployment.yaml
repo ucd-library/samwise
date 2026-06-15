@@ -8,5 +8,23 @@ spec:
       containers:
         - name: litellm
           env:
+            - name: PROXY_BASE_URL
+              value: "https://samwise-api.library.ucdavis.edu"
             - name: GENERIC_CLIENT_ID
-              value: ""
+              value: "litellm-admin"
+            - name: GENERIC_AUTHORIZATION_ENDPOINT
+              value: "https://auth.library.ucdavis.edu/realms/internal/protocol/openid-connect/auth"
+            - name: GENERIC_TOKEN_ENDPOINT
+              value: "https://auth.library.ucdavis.edu/realms/internal/protocol/openid-connect/token"
+            - name: GENERIC_USERINFO_ENDPOINT
+              value: "https://auth.library.ucdavis.edu/realms/internal/protocol/openid-connect/userinfo"
+            - name: GENERIC_USER_ROLE_ATTRIBUTE
+              value: "resource_access.litellm-admin.roles"
+            - name: GENERIC_SCOPE
+              value: "openid profile email roles"
+            - name: GENERIC_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: oauth-litellm-client-secret
+                  key: secret
+

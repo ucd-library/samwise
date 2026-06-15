@@ -21,6 +21,12 @@
         "k8sProperty" : "secret"
       }]
     },{
+      "k8sName" : "oauth-litellm-client-secret",
+      "mappings" : [{
+        "gcsmName" : "samwise-litellm-keycloak-client-secret",
+        "k8sProperty" : "secret"
+      }]
+    },{
       "k8sName" : "open-webui-tls",
       "tls" : true,
       "certGcsmName" : "lib-ssl-cert",
