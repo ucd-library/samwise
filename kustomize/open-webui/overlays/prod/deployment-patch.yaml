@@ -31,5 +31,7 @@ spec:
                 secretKeyRef:
                   name: litellm-secret
                   key: master-key
+            - name: ENABLE_FORWARD_USER_INFO_HEADERS
+              value: "true"
       nodeSelector:
         intended-for: "samwise-frontend"
