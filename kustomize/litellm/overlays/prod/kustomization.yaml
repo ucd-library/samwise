@@ -6,3 +6,4 @@ namespace: samwise
 resources:
   - ../../base
   - ingress.yaml
+  - deployment.yaml

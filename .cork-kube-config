@@ -15,9 +15,6 @@
 
   "secrets" : {
     "prod" : [{
-      "k8sName" : "kubeconfig",
-      "kubeconfig" : true
-    },{
       "k8sName" : "oauth-client-secret",
       "mappings" : [{
         "gcsmName" : "samwise-keycloak-client-secret",
