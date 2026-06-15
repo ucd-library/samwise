@@ -6,4 +6,9 @@ namespace: samwise
 resources:
   - ../../base
   - ingress.yaml
-  - deployment.yaml
+
+patches:
+  - path: deployment.yaml
+    target:
+      kind: Deployment
+      name: litellm

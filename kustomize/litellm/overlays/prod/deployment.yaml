@@ -7,6 +7,7 @@ spec:
     spec:
       containers:
         - name: litellm
+          image: ghcr.io/berriai/litellm:v1.88.2
           env:
             - name: PROXY_BASE_URL
               value: "https://samwise-api.library.ucdavis.edu"
