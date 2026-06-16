@@ -7,7 +7,7 @@ data:
     model_list:
 
       # vllm: OpenAI-compatible endpoint on cyberdyne02 (one overlay active at a time)
-      - model_name: qwen3.5
+      - model_name: qwen3.5:35b
         litellm_params:
           model: openai/Qwen/Qwen3.5-35B-A3B
           api_base: http://cyberdyne02-qwen35-vllm:8000/v1
