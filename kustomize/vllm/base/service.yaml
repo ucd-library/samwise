@@ -4,7 +4,7 @@ metadata:
   name: vllm
 spec:
   selector:
-    app: cyberdyne01-qwen25vl-vllm
+    app: vllm
   ports:
     - name: http
       port: 8000

@@ -3,18 +3,12 @@ kind: Deployment
 metadata:
   name: vllm
 spec:
-  selector:
-    matchLabels:
-      app: cyberdyne02-qwen35-vllm
   template:
-    metadata:
-      labels:
-        app: cyberdyne02-qwen35-vllm
     spec:
       # stop k8s from injecting env vars that cause vllm to fail
       enableServiceLinks: false
       nodeSelector:
-        kubernetes.io/hostname: cyberdyne02.library.ucdavis.edu
+        kubernetes.io/hostname: cyberdyne01.library.ucdavis.edu
       tolerations:
         - key: dedicated
           operator: Equal
@@ -30,7 +24,7 @@ spec:
             - --port
             - "8000"
             - --gpu-memory-utilization
-            - "0.70"
+            - "0.80"
             - --max-model-len
             - "16384"
             - --tensor-parallel-size

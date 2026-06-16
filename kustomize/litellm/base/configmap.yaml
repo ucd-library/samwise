@@ -21,6 +21,14 @@ data:
           api_base:  http://cyberdyne01-qwen25vl-vllm:8000/v1
           api_key: "_none_"
 
+      # cyberdyne02: embedding model
+      - model_name: qwen3-embed:8b
+        litellm_params:
+          model: openai/Qwen/Qwen3-Embedding-8B
+          api_base: http://cyberdyne02-qwen-embed-vllm:8000/v1
+          api_key: "_none_"
+          mode: embedding
+
     general_settings:
       master_key: os.environ/LITELLM_MASTER_KEY
       database_url: os.environ/DATABASE_URL

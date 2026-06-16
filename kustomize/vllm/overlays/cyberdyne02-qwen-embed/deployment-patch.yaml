@@ -3,7 +3,13 @@ kind: Deployment
 metadata:
   name: vllm
 spec:
+  selector:
+    matchLabels:
+      app: cyberdyne02-qwen-embed-vllm
   template:
+    metadata:
+      labels:
+        app: cyberdyne02-qwen-embed-vllm
     spec:
       # stop k8s from injecting env vars that cause vllm to fail
       enableServiceLinks: false
@@ -18,17 +24,12 @@ spec:
         - name: vllm
           args:
             - --model
-            - Qwen/Qwen3.5-35B-A3B
+            - Qwen/Qwen3-Embedding-8B
             - --host
             - "0.0.0.0"
             - --port
-            - "8000"
+            - "8001"
             - --gpu-memory-utilization
-            - "0.80"
+            - "0.20"
             - --max-model-len
-            - "16384"
-            - --tensor-parallel-size
-            - "1"
-            - --enable-chunked-prefill
-            - --reasoning-parser
-            - "qwen3"
+            - "8192"

@@ -20,9 +20,10 @@ spec:
           env:
             - name: NVIDIA_VISIBLE_DEVICES
               value: "all"
-          resources:
-            limits:
-              nvidia.com/gpu: 1
+          # Using vllm for GPU memory management
+          # resources:
+          #   limits:
+          #     nvidia.com/gpu: 1
           volumeMounts:
             - name: vllm-cache
               mountPath: /root/.cache/huggingface

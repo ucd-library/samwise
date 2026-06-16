@@ -4,10 +4,10 @@ metadata:
   name: vllm
 spec:
   selector:
-    app: cyberdyne02-qwen35-vllm
+    app: cyberdyne02-qwen-embed-vllm
   type: NodePort
   ports:
     - name: http
       port: 8000
       targetPort: 8001
-      nodePort: 30800
+      nodePort: 30803
