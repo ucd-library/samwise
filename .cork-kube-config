@@ -67,6 +67,9 @@
       "ignore" : true
     },
     {
+      "path" : "kustomize/vllm/overlays/cyberdyne01-qwen36"
+    },
+    {
       "path" : "kustomize/vllm/overlays/cyberdyne02-gemma4",
       "ignore" : true
     },
