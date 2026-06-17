@@ -162,3 +162,7 @@ graph TD
   LiteLLM --> C1
   LiteLLM --> C2
 ```
+
+> "You've left out one of the chief characters, Samwise the Brave. Frodo wouldn't have got far without Sam."
+>
+> \- Frodo Baggins
