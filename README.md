@@ -61,11 +61,10 @@ Samwise is composed of four services that work in a layered stack:
 
 ```mermaid
 graph TD
-  Staff["Library Staff\n(Browser)"] -->|HTTPS / VPN only| OWUI_Ingress["nginx Ingress\nsamwise.library.ucdavis.edu"]
-  DevClient["Developer\nAPI Client"] -->|Bearer Token / VPN| LiteLLM_Ingress["nginx Ingress\nsamwise-api.library.ucdavis.edu"]
+  Staff["Library Staff\n(Browser)"] -->|HTTPS / VPN only| Ingress["nginx Ingress\nsamwise.library.ucdavis.edu"]
+  DevClient["Developer\nAPI Client"] -->|Bearer Token /api — VPN only| Ingress
 
-  OWUI_Ingress --> OpenWebUI["Open-WebUI\n(8 replicas)"]
-  LiteLLM_Ingress --> LiteLLM
+  Ingress --> OpenWebUI["Open-WebUI\n(8 replicas)"]
 
   OpenWebUI -->|OIDC redirect| CAS["UC Davis CAS\nauth.library.ucdavis.edu"]
   OpenWebUI -->|Chat API calls| LiteLLM["LiteLLM\nAPI Gateway"]

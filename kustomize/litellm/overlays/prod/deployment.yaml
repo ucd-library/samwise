@@ -28,4 +28,5 @@ spec:
                 secretKeyRef:
                   name: oauth-litellm-client-secret
                   key: secret
-
+      nodeSelector:
+        intended-for: "samwise-frontend"
