@@ -5,15 +5,11 @@ server:
 database:
   url: "${DATABASE_URL}"
 
-# Bearer token plugin validates OPENAI_API_KEY sent by Open-WebUI on all requests
-# (including /v1/models which has no user context). x-headers picks up per-user
-# email on chat requests but Bearer takes precedence when both are present.
+# tokenPlugin and x-header names are set via env vars (AUTH_TOKEN_PLUGIN,
+# AUTH_IDENTITY_HEADER, AUTH_EMAIL_HEADER) so they don't need to live here.
 auth:
-  tokenPlugin: "/plugins/token.js"
   xHeaders:
     enabled: true
-    identityHeader: "x-openwebui-user-email"
-    emailHeader: "x-openwebui-user-email"
 
 debug: false
 

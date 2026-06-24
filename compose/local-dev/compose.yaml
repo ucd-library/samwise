@@ -13,6 +13,7 @@ services:
       DATABASE_URL: postgresql://postgres:postgres@postgres:5432/samwise
       ENABLE_OAUTH_SIGNUP: "true"
       ENABLE_OAUTH_PERSISTENT_CONFIG: "false"
+      ENABLE_FORWARD_USER_INFO_HEADERS: "true"
       OAUTH_CLIENT_ID: "ollama"
       WEBUI_URL: "http://localhost:8080"
       OPENID_PROVIDER_URL: "https://auth.library.ucdavis.edu/realms/internal/.well-known/openid-configuration"
@@ -34,7 +35,11 @@ services:
       - "3000:3000"
     environment:
       DATABASE_URL: "postgresql://postgres:postgres@postgres:5432/aiproxy"
+    env_file:
+      - .env
     volumes:
+      - ../../../ai-proxy:/app
+      - /app/node_modules
       - ./ai-proxy-config.yaml:/app/config.yaml:ro
       - ./models.yaml:/app/models.yaml:ro
       - ./ai-proxy-token-plugin.js:/plugins/token.js:ro

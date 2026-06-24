@@ -7,7 +7,7 @@
   lbStrategy: least-connections
   backends:
     - host: cyberdyne02.library.ucdavis.edu
-      port: 8000
+      port: 30800
 
 - id: qwen3.5-thinking:35b
   upstreamModel: Qwen/Qwen3.5-35B-A3B
@@ -17,14 +17,14 @@
       enable_thinking: true
   backends:
     - host: cyberdyne02.library.ucdavis.edu
-      port: 8000
+      port: 30800
 
 - id: qwen3.6-fast:35b
   upstreamModel: Qwen/Qwen3.6-35B-A3B
   lbStrategy: least-connections
   backends:
     - host: cyberdyne01.library.ucdavis.edu
-      port: 8000
+      port: 30804
 
 - id: qwen3.6-thinking:35b
   upstreamModel: Qwen/Qwen3.6-35B-A3B
@@ -34,11 +34,11 @@
       enable_thinking: true
   backends:
     - host: cyberdyne01.library.ucdavis.edu
-      port: 8000
+      port: 30804
 
 - id: qwen3-embed:8b
   upstreamModel: Qwen/Qwen3-Embedding-8B
   lbStrategy: least-connections
   backends:
     - host: cyberdyne02.library.ucdavis.edu
-      port: 8001
+      port: 30803
