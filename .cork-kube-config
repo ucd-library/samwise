@@ -57,6 +57,7 @@
       "ignore" : true
     },
     {
+      "ignore" : true,
       "path" : "kustomize/vllm/overlays/cyberdyne02-qwen35"
     },
     {
@@ -65,6 +66,9 @@
     {
       "path" : "kustomize/vllm/overlays/cyberdyne01-qwen25vl",
       "ignore" : true
+    },
+    {
+      "path" : "kustomize/vllm/overlays/cyberdyne02-qwen36"
     },
     {
       "path" : "kustomize/vllm/overlays/cyberdyne01-qwen36"
