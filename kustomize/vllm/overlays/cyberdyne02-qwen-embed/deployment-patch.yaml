@@ -22,6 +22,9 @@ spec:
           effect: NoSchedule
       containers:
         - name: vllm
+          ports:
+            - $patch: replace
+            - containerPort: 8001
           args:
             - --model
             - Qwen/Qwen3-Embedding-8B

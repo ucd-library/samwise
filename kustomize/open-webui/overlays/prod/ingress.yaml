@@ -22,7 +22,7 @@ metadata:
     # Uncomment to issue TLS certificates via cert-manager:
     # cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
-  ingressClassName: vpn-ingress 
+  ingressClassName: public-ingress 
   rules:
     - host: samwise.library.ucdavis.edu
       http:
