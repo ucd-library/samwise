@@ -79,6 +79,9 @@
     },
     {
       "path" : "kustomize/litellm"
+    },
+    {
+      "path" : "kustomize/litellm-proxy"
     }
   ]
 }

@@ -1,0 +1,44 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: litellm-proxy-config
+data:
+  nginx.conf: |
+    worker_processes auto;
+
+    events {
+      worker_connections 1024;
+    }
+
+    http {
+      map $http_upgrade $connection_upgrade {
+        default upgrade;
+        ''      close;
+      }
+
+      server {
+        listen 8080;
+
+        # Only the OpenAI-compatible API surface is public. Everything else
+        # (/ui, /fallback/login, model/user/team management, etc.) is only
+        # reachable via the vpn-ingress admin route straight to litellm.
+        location ^~ /v1/ {
+          proxy_pass http://litellm:4000;
+          proxy_http_version 1.1;
+
+          proxy_set_header Host              $host;
+          proxy_set_header X-Real-IP         $remote_addr;
+          proxy_set_header X-Forwarded-For   $proxy_add_x_forwarded_for;
+          proxy_set_header X-Forwarded-Proto $scheme;
+          proxy_set_header Upgrade           $http_upgrade;
+          proxy_set_header Connection        $connection_upgrade;
+
+          proxy_read_timeout 900s;
+          proxy_send_timeout 300s;
+        }
+
+        location / {
+          return 403;
+        }
+      }
+    }

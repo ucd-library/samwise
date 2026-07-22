@@ -41,13 +41,13 @@ data:
 
       - model_name: qwen3.6-fp8-fast:35b
         litellm_params:
-          model: openai/Qwen/Qwen3.6-35B-A3B
+          model: openai/Qwen/Qwen3.6-35B-A3B-FP8
           api_base:  http://cyberdyne02-qwen36-vllm:8000/v1
           api_key: "_none_"
 
       - model_name: qwen3.6-fp8-thinking:35b
         litellm_params:
-          model: openai/Qwen/Qwen3.6-35B-A3B
+          model: openai/Qwen/Qwen3.6-35B-A3B-FP8
           api_base:  http://cyberdyne02-qwen36-vllm:8000/v1
           api_key: "_none_"
           extra_body:
@@ -66,7 +66,7 @@ data:
       master_key: os.environ/LITELLM_MASTER_KEY
       database_url: os.environ/DATABASE_URL
       store_model_in_db: true
-      control_plane_url: https://samwise-api.library.ucdavis.edu
+      control_plane_url: https://samwise-api-admin.library.ucdavis.edu
       user_header_mappings:
         - header_name: "X-OpenWebUI-User-Email"
           litellm_user_role: "customer"
