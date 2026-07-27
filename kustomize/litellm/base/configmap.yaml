@@ -62,6 +62,13 @@ data:
           api_key: "_none_"
           mode: embedding
 
+      # cyberdyne02: reranker model
+      - model_name: qwen3-reranker:4b
+        litellm_params:
+          model: hosted_vllm/Qwen/Qwen3-Reranker-4B
+          api_base: http://cyberdyne02-qwen-reranker-vllm:8000
+          api_key: "_none_"
+
     general_settings:
       master_key: os.environ/LITELLM_MASTER_KEY
       database_url: os.environ/DATABASE_URL

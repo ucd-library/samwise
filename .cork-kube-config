@@ -64,6 +64,10 @@
       "path" : "kustomize/vllm/overlays/cyberdyne02-qwen-embed"
     },
     {
+      "path" : "kustomize/vllm/overlays/cyberdyne02-qwen-reranker",
+      "ignore" : true
+    },
+    {
       "path" : "kustomize/vllm/overlays/cyberdyne01-qwen25vl",
       "ignore" : true
     },

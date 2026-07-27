@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vllm
+spec:
+  selector:
+    matchLabels:
+      app: cyberdyne02-qwen-reranker-vllm
+  template:
+    metadata:
+      labels:
+        app: cyberdyne02-qwen-reranker-vllm
+    spec:
+      # stop k8s from injecting env vars that cause vllm to fail
+      enableServiceLinks: false
+      nodeSelector:
+        kubernetes.io/hostname: cyberdyne02.library.ucdavis.edu
+      tolerations:
+        - key: dedicated
+          operator: Equal
+          value: gpu-inference
+          effect: NoSchedule
+      containers:
+        - name: vllm
+          args:
+            - --model
+            - Qwen/Qwen3-Reranker-4B
+            - --host
+            - "0.0.0.0"
+            - --port
+            - "8000"
+            - --gpu-memory-utilization
+            - "0.10"
+            - --max-model-len
+            - "8192"
+            - --tensor-parallel-size
+            - "1"
+            - --hf-overrides
+            - '{"architectures": ["Qwen3ForSequenceClassification"], "classifier_from_token": ["no", "yes"], "is_original_qwen3_reranker": true}'
