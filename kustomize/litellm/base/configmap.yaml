@@ -29,12 +29,16 @@ data:
           model: openai/Qwen/Qwen3.6-35B-A3B
           api_base:  http://cyberdyne01-qwen36-vllm:8000/v1
           api_key: "_none_"
+          input_cost_per_token: 0.000001
+          output_cost_per_token: 0.000005
 
       - model_name: qwen3.6-thinking:35b
         litellm_params:
           model: openai/Qwen/Qwen3.6-35B-A3B
           api_base:  http://cyberdyne01-qwen36-vllm:8000/v1
           api_key: "_none_"
+          input_cost_per_token: 0.000001
+          output_cost_per_token: 0.000005
           extra_body:
             chat_template_kwargs:
               enable_thinking: true
@@ -44,12 +48,16 @@ data:
           model: openai/Qwen/Qwen3.6-35B-A3B-FP8
           api_base:  http://cyberdyne02-qwen36-vllm:8000/v1
           api_key: "_none_"
+          input_cost_per_token: 0.000001
+          output_cost_per_token: 0.000005
 
       - model_name: qwen3.6-fp8-thinking:35b
         litellm_params:
           model: openai/Qwen/Qwen3.6-35B-A3B-FP8
           api_base:  http://cyberdyne02-qwen36-vllm:8000/v1
           api_key: "_none_"
+          input_cost_per_token: 0.000001
+          output_cost_per_token: 0.000005
           extra_body:
             chat_template_kwargs:
               enable_thinking: true

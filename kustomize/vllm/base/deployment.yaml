@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: vllm
-          image: vllm/vllm-openai:v0.25.0
+          image: vllm/vllm-openai:v0.26.0
           ports:
             - containerPort: 8000
           env:
