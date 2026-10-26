@@ -53,33 +53,10 @@
       "path" : "kustomize/open-webui"
     },
     {
-      "path" : "kustomize/ollama-embedding",
-      "ignore" : true
+      "path" : "kustomize/vllm/overlays/cyberdyne02-qwen38"
     },
     {
-      "ignore" : true,
-      "path" : "kustomize/vllm/overlays/cyberdyne02-qwen35"
-    },
-    {
-      "path" : "kustomize/vllm/overlays/cyberdyne02-qwen-embed"
-    },
-    {
-      "path" : "kustomize/vllm/overlays/cyberdyne02-qwen-reranker",
-      "ignore" : true
-    },
-    {
-      "path" : "kustomize/vllm/overlays/cyberdyne01-qwen25vl",
-      "ignore" : true
-    },
-    {
-      "path" : "kustomize/vllm/overlays/cyberdyne02-qwen36"
-    },
-    {
-      "path" : "kustomize/vllm/overlays/cyberdyne01-qwen36"
-    },
-    {
-      "path" : "kustomize/vllm/overlays/cyberdyne02-gemma4",
-      "ignore" : true
+      "path" : "kustomize/vllm/overlays/cyberdyne01-qwen38"
     },
     {
       "path" : "kustomize/litellm"
